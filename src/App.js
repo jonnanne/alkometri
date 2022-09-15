@@ -26,20 +26,23 @@ function App() {
     }
     else {result = gramsLeft/(weight * 0.6)}
 
+    if (result < 0) {result = 0}
+
     setAlcoholLevel(result.toFixed(2))
   
 }
 
   return (
-    <div>
+
+    <div style={{margin: "25px", fontWeight: "bold"}}>
       <h3>Calculating alcohol blood level</h3>
       <form onSubmit = {calculate}>
       <div>
-      <label>Weight:</label>
+      <label style={{marginRight: "5px"}}>Weight:</label>
       <input type="number" value={weight} onChange={e => setWeight(e.target.value)}/>
       </div>
       <div>
-        <label>Bottles:</label>
+        <label style={{marginRight: "5px"}}>Bottles:</label>
         <select value={bottles} onChange={e =>setBottles(e.target.value)}>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -54,7 +57,7 @@ function App() {
         </select>
       </div>
       <div>
-        <label>Time:</label>
+        <label style={{marginRight: "5px"}}>Time:</label>
         <select value={time} onChange={e => setTime(e.target.value)}>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -75,10 +78,10 @@ function App() {
       </div>
 
       <div>
-        <button>Calculate</button>
+        <button style= {{marginTop:"15px", marginBottom:"15px"}}>Calculate!</button>
       </div>
       <div>
-        <output>{alcoholLevel}</output>
+        <output style={{fontSize: "25px"}}>{alcoholLevel}</output>
       </div>
 
       </form>
